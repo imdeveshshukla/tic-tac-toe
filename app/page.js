@@ -10,16 +10,23 @@ function Header({str}) {
   );
 }
 function Dabba({status,id}) {
+  const [state,changestate]=useState(status);
   function clicked(){
-    
+    if(state == 'x')
+      changestate('o');
+    else 
+      changestate('x');
   }
   return(
-    <div className="boxes" id={id} onClick={status}>{status}</div>
+    <div className="boxes" id={id} onClick={clicked}>{state}</div>
   )
 }
 function Page() {
+  function init(){
+    
+  }
   return(
-    <>
+    <div className="mainBox flex flex-col items-center justify-evenly">
     <Header str="Hello"/>
     <div id="tictactoeBox" className="grid grid-cols-3">
       <Dabba id="dabba1"/>
@@ -32,7 +39,8 @@ function Page() {
       <Dabba id="dabba8"/>
       <Dabba id="dabba9"/>
     </div>
-    </>
+    <button onClick={init}>Click to Start New Game</button>
+    </div>
   )
 }
 export default Page;
