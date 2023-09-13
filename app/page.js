@@ -1,11 +1,15 @@
 "use client"
 import { useState } from "react";
-
+import Game from './game';
 function Header({str}) {
   const [stri , changeStr] = useState(str);
+  // console.log(Game.getGameInfo()); 
+  if (Game.getGameInfo == "Lets Start") 
+    changeStr("Let Start");
+
   return (
     <p id="game-info" className="text-slate-200 ">
-      {stri}
+      <Game/>
     </p>
   );
 }
@@ -44,3 +48,5 @@ function Page() {
   )
 }
 export default Page;
+
+
